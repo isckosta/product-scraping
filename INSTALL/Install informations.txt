@@ -1,0 +1,1 @@
+Para instalar o projeto, foi utilizado o Laravel Sail em conjunto com WSL2 do Windows.
