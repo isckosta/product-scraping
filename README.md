@@ -84,3 +84,7 @@ Goutte é um pacote Laravel que facilita a captura de dados de sites da web.
 O Telescope fornece informações sobre as solicitações que chegam ao sistema, exceções, entradas de log, consultas de banco de dados, jobs em fila, e-mail, notificações, operações de cache, tarefas agendadas, dumps de variáveis e muito mais.
 
 Será instalada no projeto ao rodar o comando ```sail composer install```
+
+### Laravel Sail
+
+O Laravel Sail é uma interface de linha de comando leve (assim como o artisan) e simples de usar. Seu foco é abstrair todo o uso do Docker para que seja mais simples durante o dia a dia.
