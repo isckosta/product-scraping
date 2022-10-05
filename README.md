@@ -27,9 +27,9 @@ Finalmente, você pode iniciar o Sail. Para continuar aprendendo a usar o Sail, 
 
 ```./vendor/bin/sail up```
 
-*ATENÇÃO:* 
+**ATENÇÃO:** 
 
-Normalmente, os comandos do terminal do Laravel seriam executados usando o prefixo *php*, por exemplo: ```php artisan migrate```.
+Normalmente, os comandos do terminal do Laravel seriam executados usando o prefixo **php**, por exemplo: ```php artisan migrate```.
 
 Com o Sail instalado, os próximos comandos do Laravel e ou composer deverão ser executados usando o prefixo ```./vendor/bin/sail 'comando aqui'```.
 
@@ -42,7 +42,7 @@ No arquivo ```.env``` colocamos as configurações do ambiente específico que v
 
 O ```APP_ENV``` informa qual o nome do ambiente que estamos executando a aplicação. O aconselhável em produção é definir o valor ```production```. Isso porque o Laravel tem uma serie de proteção quando ele está configurado assim.
 
-O ```APP_DEBUG``` indica para o Laravel se ele deve mostrar erros no navegador. Exibir informações de erro é extremamente perigoso, um usuário mal intencionado pode obter diversas informações a partir dele. Por esse motivo sempre devemos deixar como *false*, assim ele mostrará apenas a mensagem informando que aconteceu algo de errado.
+O ```APP_DEBUG``` indica para o Laravel se ele deve mostrar erros no navegador. Exibir informações de erro é extremamente perigoso, um usuário mal intencionado pode obter diversas informações a partir dele. Por esse motivo sempre devemos deixar como **false**, assim ele mostrará apenas a mensagem informando que aconteceu algo de errado.
 
 Se precisar saber quais erros estão acontecendo em produção pode verificar o arquivo de log do Laravel.
 
@@ -53,9 +53,9 @@ Ao clonar a aplicação para nosso servidor de produção, a primeira coisa que 
 
 ```sail composer install --optimize-autoload --no-dev```
 
-*–optimize-autoload*: gera uma versão das regras do PSR-4/PSR-0 em um arquivo PHP único, evitando que a linguagem tenha que o olhar no sistema de arquivos. Esse arquivo de classmap pode ser facilmente cacheado pelo opcache tornando a obtenção dos caminhos muito mais rápido.
+**–optimize-autoload**: gera uma versão das regras do PSR-4/PSR-0 em um arquivo PHP único, evitando que a linguagem tenha que o olhar no sistema de arquivos. Esse arquivo de classmap pode ser facilmente cacheado pelo opcache tornando a obtenção dos caminhos muito mais rápido.
 
-*–no-dev*: ignora as dependências exclusivas do ambiente de desenvolvimento
+**–no-dev**: ignora as dependências exclusivas do ambiente de desenvolvimento
 
 ### Cacheando os arquivos de configuração
 
