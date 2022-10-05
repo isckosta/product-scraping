@@ -27,6 +27,12 @@ Finalmente, você pode iniciar o Sail. Para continuar aprendendo a usar o Sail, 
 
 ```./vendor/bin/sail up```
 
+*ATENÇÃO:* 
+
+Normalmente, os comandos do terminal do Laravel seriam executados usando o prefixo *php*, por exemplo: ```php artisan migrate```.
+
+Com o Sail instalado, os comandos deverão ser executados usando o prefixo ```./vendor/bin/sail 'comando aqui'```.
+
 ###  Configurando o .env para produção
 
 No arquivo ```.env``` colocamos as configurações do ambiente específico que vamos rodar a aplicação. Em ambiente de produção dois itens desse arquivo devem obrigatoriamente ser alterados para a segurança da aplicação:
@@ -72,3 +78,9 @@ O Laravel possui um comando que serializa todas as rotas da aplicação. Esses d
 Muitas vezes, precisamos de dados de sites que não foram construídos por nós, podemos precisar desses dados para alguma pesquisa, para algumas análises ou até mesmo para tópicos complexos como aprendizado de máquina. Esses dados podem ser facilmente obtidos usando um processo chamado web scraping.
 
 Goutte é um pacote Laravel que facilita a captura de dados de sites da web.
+
+### Laravel Telescope
+
+O Telescope fornece informações sobre as solicitações que chegam ao sistema, exceções, entradas de log, consultas de banco de dados, jobs em fila, e-mail, notificações, operações de cache, tarefas agendadas, dumps de variáveis e muito mais.
+
+Será instalada no projeto ao rodar o comando ```composer install```
