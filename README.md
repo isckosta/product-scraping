@@ -36,7 +36,7 @@ No arquivo ```.env``` colocamos as configurações do ambiente específico que v
 
 O ```APP_ENV``` informa qual o nome do ambiente que estamos executando a aplicação. O aconselhável em produção é definir o valor ```production```. Isso porque o Laravel tem uma serie de proteção quando ele está configurado assim.
 
-O ```APP_DEBU``` indica para o Laravel se ele deve mostrar erros no navegador. Exibir informações de erro é extremamente perigoso, um usuário mal intencionado pode obter diversas informações a partir dele. Por esse motivo sempre devemos deixar como *false*, assim ele mostrará apenas a mensagem informando que aconteceu algo de errado.
+O ```APP_DEBUG``` indica para o Laravel se ele deve mostrar erros no navegador. Exibir informações de erro é extremamente perigoso, um usuário mal intencionado pode obter diversas informações a partir dele. Por esse motivo sempre devemos deixar como *false*, assim ele mostrará apenas a mensagem informando que aconteceu algo de errado.
 
 Se precisar saber quais erros estão acontecendo em produção pode verificar o arquivo de log do Laravel.
 
