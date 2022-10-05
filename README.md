@@ -31,7 +31,7 @@ Finalmente, você pode iniciar o Sail. Para continuar aprendendo a usar o Sail, 
 
 Normalmente, os comandos do terminal do Laravel seriam executados usando o prefixo *php*, por exemplo: ```php artisan migrate```.
 
-Com o Sail instalado, os comandos deverão ser executados usando o prefixo ```./vendor/bin/sail 'comando aqui'```.
+Com o Sail instalado, os próximos comandos do Laravel e ou composer deverão ser executados usando o prefixo ```./vendor/bin/sail 'comando aqui'```.
 
 ###  Configurando o .env para produção
 
@@ -51,7 +51,7 @@ Se precisar saber quais erros estão acontecendo em produção pode verificar o 
 
 Ao clonar a aplicação para nosso servidor de produção, a primeira coisa que precisamos fazer é executar o composer para baixar as dependências do projeto. Quando estamos em produção podemos passar dois parâmetros extras, veja como fica o comando:
 
-```composer install --optimize-autoload --no-dev```
+```sail composer install --optimize-autoload --no-dev```
 
 *–optimize-autoload*: gera uma versão das regras do PSR-4/PSR-0 em um arquivo PHP único, evitando que a linguagem tenha que o olhar no sistema de arquivos. Esse arquivo de classmap pode ser facilmente cacheado pelo opcache tornando a obtenção dos caminhos muito mais rápido.
 
@@ -61,7 +61,7 @@ Ao clonar a aplicação para nosso servidor de produção, a primeira coisa que 
 
 Acessar o arquivo ```.env``` toda hora é muito custoso, uma vez que ele é um arquivo de texto e não pode ser cacheado pelo opcache. Baseado nisso, o Laravel possui um comando que copia as configurações dele para um arquivo php único diminuindo assim o custo de acesso. Para isso temos o comando:
 
-```php artisan config:cache```
+```sail artisan config:cache```
 
 Único detalhe que devemos ficar atentos quando executamos esse comando. Como as configurações do arquivo de configuração ```.env``` são carregados para o arquivo único, não é aconselhável usar o helper ```env()``` do Laravel que pega as configurações do arquivo ```.env``` já que ele pode não ser carregado.
 
@@ -69,7 +69,7 @@ Acessar o arquivo ```.env``` toda hora é muito custoso, uma vez que ele é um a
 
 O Laravel possui um comando que serializa todas as rotas da aplicação. Esses dados são passados para um único método em um arquivo cacheado. Isso diminui o tempo de carregamento das rotas da aplicação:
 
-```php artisan route:cache```
+```sail artisan route:cache```
 
 ## Bibliotecas utilizadas
 
@@ -83,4 +83,4 @@ Goutte é um pacote Laravel que facilita a captura de dados de sites da web.
 
 O Telescope fornece informações sobre as solicitações que chegam ao sistema, exceções, entradas de log, consultas de banco de dados, jobs em fila, e-mail, notificações, operações de cache, tarefas agendadas, dumps de variáveis e muito mais.
 
-Será instalada no projeto ao rodar o comando ```composer install```
+Será instalada no projeto ao rodar o comando ```sail composer install```
