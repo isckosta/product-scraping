@@ -65,9 +65,9 @@ O Laravel possui um comando que serializa todas as rotas da aplicação. Esses d
 
 ```php artisan route:cache```
 
-### Bibliotecas utilizadas
+## Bibliotecas utilizadas
 
-## Laravel Goutte (Facade)
+### Laravel Goutte (Facade)
 
 Muitas vezes, precisamos de dados de sites que não foram construídos por nós, podemos precisar desses dados para alguma pesquisa, para algumas análises ou até mesmo para tópicos complexos como aprendizado de máquina. Esses dados podem ser facilmente obtidos usando um processo chamado web scraping.
 
