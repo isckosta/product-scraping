@@ -7,97 +7,68 @@ Nesse desafio trabalharemos no desenvolvimento de uma REST API que utilizará os
 
 O projeto tem como objetivo dar suporte a equipe de nutricionistas da empresa Fitness Foods LC para que possam comparar de maneira rápida a informação nutricional dos alimentos da base do Open Food Facts.
 
-### Obrigatório
+## Como instalar?
 
-- Trabalhar em um FORK deste repositório em seu usuário;
-- O projeto back-end deverá ser desenvolvido usando a Linguagem de preferência da Vaga;
-- Documentação para configuração do projeto em ambientes de produção (como instalar, rodar e referências a libs usadas);
+- Faça o download ou o clone do projeto;
+- Execute o comando ```composer install```;
+- Configure o ```.env``` do projeto duplicando o arquivo ```.env.example``` e ajustando as configurações de Banco de Dados;
 
+### Instalando o Laravel Sail em aplicações já existentes
 
-## O projeto
+Você deverá instalar o Sail usando o gerenciador de pacotes do Composer. Obviamente, essas etapas pressupõem que seu ambiente de desenvolvimento local existente permite que você instale as dependências do Composer:
 
-- Criar um banco de dados MongoDB usando Atlas: https://www.mongodb.com/cloud/atlas ou algum Banco de Dados SQL se não sentir confortável com NoSQL;
-- Criar uma REST API com as melhores práticas de desenvolvimento.
-- Recomendável usar Drivers oficiais para integração com o DB
+```composer require laravel/sail --dev```
 
-### Modelo de Dados:
+Após a instalação do Sail, você pode executar o comando do artisan ```sail:install```. Este comando publicará o arquivo docker-compose.yml do Sail na raiz do projeto:
 
-Para a definição do modelo, consultar o arquivo [products.json](./products.json) que foi exportado do Open Food Facts, um detalhe importante é que temos dois campos personalizados para controlar a importação de produtos:
+```php artisan sail:install```
 
-- `imported_t`: campo do tipo `Date` com a dia e hora que foi importado;
-- `status`: campo do tipo `Enum` com os possíveis valores `draft` e `imported`;
+Finalmente, você pode iniciar o Sail. Para continuar aprendendo a usar o Sail, continue lendo o restante desta documentação:
 
-### Sistema do CRON
+```./vendor/bin/sail up```
 
-Para prosseguir com o desafio, precisaremos criar na API um sistema de atualização que vai realizar o scraping da página do [Open Food Facts](https://world.openfoodfacts.org/) uma vez ao día. Adicionar aos arquivos de configuração o melhor horário para executar a importação.
+##  Configurando o .env para produção
 
-Ao realizar o scraping do HTML, recomendamos utilizar estruturas recursivas para navegar entre a lista de produtos e acessar a página do produto com as informações adicionais necessárias como:
+No arquivo ```.env``` colocamos as configurações do ambiente específico que vamos rodar a aplicação. Em ambiente de produção dois itens desse arquivo devem obrigatoriamente ser alterados para a segurança da aplicação:
 
-- Código de Barras
-- Quantidade
-- Marcas
-- Embalagem
-- Categorias
+```APP_ENV=production```
+```APP_DEBUG=false```
 
+O ```APP_ENV``` informa qual o nome do ambiente que estamos executando a aplicação. O aconselhável em produção é definir o valor ```production```. Isso porque o Laravel tem uma serie de proteção quando ele está configurado assim.
 
-Ter em conta que:
+O ```APP_DEBU``` indica para o Laravel se ele deve mostrar erros no navegador. Exibir informações de erro é extremamente perigoso, um usuário mal intencionado pode obter diversas informações a partir dele. Por esse motivo sempre devemos deixar como *false*, assim ele mostrará apenas a mensagem informando que aconteceu algo de errado.
 
-- Todos os produtos deverão ter os campos personalizados `imported_t` e `status`.
-- Limitar a importação a somente 100 produtos;
-- Para gerar a URL das imagens, revisar o How to do projeto em: https://wiki.openfoodfacts.org/Developer-How_To
-
-### A REST API
-
-Na REST API teremos os seguintes endpoints:
-
-- `GET /`: Retornar um Status: 200 e uma Mensagem "Fullstack Challenge 20201026"
-- `GET /products/:code`: Obter a informação somente de um produto;
-- `GET /products`: Listar todos os produtos da base de dados, utilizar o sistema de paginação para não sobrecarregar a `REQUEST`.
-
-## Extras
-
-- **Diferencial 1** Configurar Docker no Projeto para facilitar o Deploy da equipe de DevOps;
-- **Diferencial 2** Configurar um sistema de alerta se tem algum falho durante o Sync dos produtos;
-- **Diferencial 3** Descrever a documentação da API utilizando o conceito de Open API 3.0;
-- **Diferencial 4** Escrever Unit Tests para os endpoints da API;
+Se precisar saber quais erros estão acontecendo em produção pode verificar o arquivo de log do Laravel.
 
 
-## Readme do Repositório
+## Instalando as dependências
 
-- Deve conter o título de cada projeto
-- Uma descrição de uma frase
-- Como instalar e usar o projeto (instruções)
-- Não esqueça o [.gitignore](https://www.toptal.com/developers/gitignore)
+Ao clonar a aplicação para nosso servidor de produção, a primeira coisa que precisamos fazer é executar o composer para baixar as dependências do projeto. Quando estamos em produção podemos passar dois parâmetros extras, veja como fica o comando:
 
-## Readme do Repositório
+```composer install --optimize-autoload --no-dev```
 
-- Deve conter o título do projeto
-- Uma descrição sobre o projeto em frase
-- Deve conter uma lista com linguagem, framework e/ou tecnologias usadas
-- Como instalar e usar o projeto (instruções)
-- Não esqueça o [.gitignore](https://www.toptal.com/developers/gitignore)
-- Se está usando github pessoal, referencie que é um challenge by coodesh:  
+*–optimize-autoload*: gera uma versão das regras do PSR-4/PSR-0 em um arquivo PHP único, evitando que a linguagem tenha que o olhar no sistema de arquivos. Esse arquivo de classmap pode ser facilmente cacheado pelo opcache tornando a obtenção dos caminhos muito mais rápido.
 
->  This is a challenge by [Coodesh](https://coodesh.com/)
+*–no-dev*: ignora as dependências exclusivas do ambiente de desenvolvimento
 
-## Finalização e Instruções para a Apresentação
+## Cacheando os arquivos de configuração
 
-Avisar sobre a finalização e enviar para correção.
+Acessar o arquivo ```.env``` toda hora é muito custoso, uma vez que ele é um arquivo de texto e não pode ser cacheado pelo opcache. Baseado nisso, o Laravel possui um comando que copia as configurações dele para um arquivo php único diminuindo assim o custo de acesso. Para isso temos o comando:
 
-1. Confira se você respondeu o Scorecard anexado na Vaga que se candidatou;
-2. Confira se você respondeu o Mapeamento anexado na Vaga que se candidatou;
-3. Acesse [https://coodesh.com/challenges/review](https://coodesh.com/challenges/review);
-4. Adicione o repositório com a sua solução;
-5. Grave um vídeo, utilizando o botão na tela de solicitar revisão da Coodesh, com no máximo 5 minutos, com a apresentação do seu projeto. Utilize o tempo para:
-- Explicar o objetivo do desafio
-- Quais tecnologias foram utilizadas
-- Mostrar a aplicação em funcionamento
-- Foque em pontos obrigatórios e diferenciais quando for apresentar.
-6. Adicione o link da apresentação do seu projeto no README.md.
-7. Verifique se o Readme está bom e faça o commit final em seu repositório;
-8. Confira a vaga desejada;
-9. Envie e aguarde as instruções para seguir no processo. Sucesso e boa sorte. =)
+```php artisan config:cache```
 
-## Suporte
+Único detalhe que devemos ficar atentos quando executamos esse comando. Como as configurações do arquivo de configuração ```.env``` são carregados para o arquivo único, não é aconselhável usar o helper ```env()``` do Laravel que pega as configurações do arquivo ```.env``` já que ele pode não ser carregado.
 
-Use a [nossa comunidade](https://coodesh.com/desenvolvedores#community) para tirar dúvidas sobre o processo ou envie um e-mail para contato@coodesh.com.
+## Cacheando as rotas
+
+O Laravel possui um comando que serializa todas as rotas da aplicação. Esses dados são passados para um único método em um arquivo cacheado. Isso diminui o tempo de carregamento das rotas da aplicação:
+
+```php artisan route:cache```
+
+### Bibliotecas utilizadas
+
+## Laravel Goutte (Facade)
+
+Muitas vezes, precisamos de dados de sites que não foram construídos por nós, podemos precisar desses dados para alguma pesquisa, para algumas análises ou até mesmo para tópicos complexos como aprendizado de máquina. Esses dados podem ser facilmente obtidos usando um processo chamado web scraping.
+
+Goutte é um pacote Laravel que facilita a captura de dados de sites da web.
