@@ -27,7 +27,7 @@ Finalmente, você pode iniciar o Sail. Para continuar aprendendo a usar o Sail, 
 
 ```./vendor/bin/sail up```
 
-##  Configurando o .env para produção
+###  Configurando o .env para produção
 
 No arquivo ```.env``` colocamos as configurações do ambiente específico que vamos rodar a aplicação. Em ambiente de produção dois itens desse arquivo devem obrigatoriamente ser alterados para a segurança da aplicação:
 
@@ -41,7 +41,7 @@ O ```APP_DEBU``` indica para o Laravel se ele deve mostrar erros no navegador. E
 Se precisar saber quais erros estão acontecendo em produção pode verificar o arquivo de log do Laravel.
 
 
-## Instalando as dependências
+### Instalando as dependências
 
 Ao clonar a aplicação para nosso servidor de produção, a primeira coisa que precisamos fazer é executar o composer para baixar as dependências do projeto. Quando estamos em produção podemos passar dois parâmetros extras, veja como fica o comando:
 
@@ -51,7 +51,7 @@ Ao clonar a aplicação para nosso servidor de produção, a primeira coisa que 
 
 *–no-dev*: ignora as dependências exclusivas do ambiente de desenvolvimento
 
-## Cacheando os arquivos de configuração
+### Cacheando os arquivos de configuração
 
 Acessar o arquivo ```.env``` toda hora é muito custoso, uma vez que ele é um arquivo de texto e não pode ser cacheado pelo opcache. Baseado nisso, o Laravel possui um comando que copia as configurações dele para um arquivo php único diminuindo assim o custo de acesso. Para isso temos o comando:
 
@@ -59,7 +59,7 @@ Acessar o arquivo ```.env``` toda hora é muito custoso, uma vez que ele é um a
 
 Único detalhe que devemos ficar atentos quando executamos esse comando. Como as configurações do arquivo de configuração ```.env``` são carregados para o arquivo único, não é aconselhável usar o helper ```env()``` do Laravel que pega as configurações do arquivo ```.env``` já que ele pode não ser carregado.
 
-## Cacheando as rotas
+### Cacheando as rotas
 
 O Laravel possui um comando que serializa todas as rotas da aplicação. Esses dados são passados para um único método em um arquivo cacheado. Isso diminui o tempo de carregamento das rotas da aplicação:
 
