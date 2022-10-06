@@ -105,4 +105,11 @@ Infelizmente não consegui pegar a URL do primeiro vídeo, apenas do segundo. :(
 
 https://www.loom.com/share/6b69eead682648b0a36e95579f912cb8
 
+## Trello - Kanban
+
+Utilizei a metodologia Kanban com a ferramenta Trello para gerenciar algumas tarefas a serem feitas.
+
+https://trello.com/invite/b/vBnKsnd4/dec90e803639b9ba0b21e82932ef0d15/tarefas
+
+
 >  This is a challenge by [Coodesh](https://coodesh.com/)
