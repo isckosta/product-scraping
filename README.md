@@ -89,4 +89,10 @@ Será instalada no projeto ao rodar o comando ```sail composer install```
 
 O Laravel Sail é uma interface de linha de comando leve (assim como o artisan) e simples de usar. Seu foco é abstrair todo o uso do Docker para que seja mais simples durante o dia a dia.
 
+### L5-Swagger
+
+O Swagger é um software criado em 2011, que possui um conjunto de ferramentas construídas em torno de uma especificação chamada OpenAPI, que ajuda a projetar, construir, documentar e consumir APIs.
+
+A OpenAPI Specification (OAS) é uma especificação criada que explica como modelar/documentar o design de uma determinada API baseada em padrões, permitindo aos humanos e computadores a descoberta e compreensão dos recursos do serviço sem acesso ao código fonte. A especificação cria uma interface RESTful para desenvolver e consumir facilmente uma API mapeando efetivamente todos os recursos e operações associados a ela. É, também, um padrão mundial APIs RESTful. Atualmente existem duas versões sendo utilizadas no Swagger, temos a 2.0 e a 3.0, que é a mais recente.
+
 >  This is a challenge by [Coodesh](https://coodesh.com/)
