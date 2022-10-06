@@ -88,3 +88,5 @@ Será instalada no projeto ao rodar o comando ```sail composer install```
 ### Laravel Sail
 
 O Laravel Sail é uma interface de linha de comando leve (assim como o artisan) e simples de usar. Seu foco é abstrair todo o uso do Docker para que seja mais simples durante o dia a dia.
+
+>  This is a challenge by [Coodesh](https://coodesh.com/)

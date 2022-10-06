@@ -1,6 +1,55 @@
-openapi: 3.0.1
+openapi: 3.0.0
 info:
   title: Fullstack Challenge 20201026
-  description: CRUD Products
   version: '0.1'
-
+paths:
+  /:
+    post:
+      tags:
+        - Home
+      summary: Exibe o texto 'Fullstack Challenge 20201026'.
+      description: Essa rota exibe o texto 'Fullstack Challenge 20201026'.
+      operationId: ''
+      responses:
+        '200':
+          description: Fullstack Challenge 20201026
+  /ping:
+    post:
+      tags:
+        - Ping
+      summary: Testa se a API está funcionando.
+      description: Essa rota faz simples teste de resposta para saber se a API está rodando normalmente.
+      operationId: ping
+      responses:
+        '200':
+          description: Ping & Pong
+  /products:
+    post:
+      tags:
+        - Products
+      summary: Recupera a lista de produtos cadastrados
+      description: Retorna a lista de todos os produtos cadastados no banco de dados.
+      operationId: index
+      responses:
+        '200':
+          description: produtos importados com sucesso.
+  /products/sync:
+    post:
+      tags:
+        - Products
+      summary: Importa os produtos do site OpenFoodFacts
+      description: Captura todos os produtos do site OpenFoodFacts
+      operationId: sync
+      responses:
+        '200':
+          description: produtos importados com sucesso.
+  /product/barcode:
+    post:
+      tags:
+        - Products
+      summary: Busca produtos no banco de dados pelo seu código de barras.
+      description: Retorna o produto buscado pelo código de barras se tiver cadastrado no sistema.
+      operationId: findByBarCode
+      responses:
+        '200':
+          description: retorna o produto encontrado ou nenhum resultado

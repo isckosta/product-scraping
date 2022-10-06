@@ -7,8 +7,27 @@
     use Illuminate\Http\Request;
     use Illuminate\Support\Facades\DB;
 
+    /**
+     * @OA\Info(title="Fullstack Challenge 20201026", version="0.1")
+     */
     class ProductController extends Controller
     {
+
+        /**
+         * @OA\Post(
+         *      path="/products",
+         *      operationId="index",
+         *      tags={"Products"},
+         *      summary="Recupera a lista de produtos cadastrados",
+         *      description="Retorna a lista de todos os produtos cadastados no banco de dados.",
+         *      @OA\Response(
+         *          response=200,
+         *          description="produtos importados com sucesso."
+         *       )
+         *     )
+         *
+         * Returns list of products
+         */
         /*
          * O método index() retornará todos os produtos registrados no Banco de Dados, paginação está configurada
          * para exibir 10 elementos. */
@@ -17,6 +36,22 @@
         {
             return DB::table("products")->paginate(10);
         }
+
+        /**
+         * @OA\Post(
+         *      path="/products/sync",
+         *      operationId="sync",
+         *      tags={"Products"},
+         *      summary="Importa os produtos do site OpenFoodFacts",
+         *      description="Captura todos os produtos do site OpenFoodFacts",
+         *      @OA\Response(
+         *          response=200,
+         *          description="produtos importados com sucesso."
+         *       )
+         *     )
+         *
+         * Sincroniza os produtos do site com o banco de dados.
+         */
 
         /* O método sync() é utilizado para sincronizar manualmente os produtos do site OpenFoodFacts com o Banco de Dados. */
         public function sync()
@@ -92,6 +127,22 @@
             return "Produtos importados com sucesso!";
 
         }
+
+        /**
+         * @OA\Post(
+         *      path="/product/barcode",
+         *      operationId="findByBarCode",
+         *      tags={"Products"},
+         *      summary="Busca produtos no banco de dados pelo seu código de barras.",
+         *      description="Retorna o produto buscado pelo código de barras se tiver cadastrado no sistema.",
+         *      @OA\Response(
+         *          response=200,
+         *          description="retorna o produto encontrado ou nenhum resultado"
+         *       )
+         *     )
+         *
+         * Retorna o produto específico pelo seu código de barras
+         */
 
         // Este método busca um produto pelo código de barras.
         public function findByBarCode(Request $request)

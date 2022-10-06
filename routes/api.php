@@ -17,9 +17,7 @@
     |
     */
 
-    Route::get('/ping', function (){
-        return "pong";
-    });
+    Route::get('/ping', [HomeController::class, 'ping']);
 
     // Rota inicial para exibir "Fullstack Challenge 20201026" - requisito do desafio.
     Route::get('/', [HomeController::class, 'index']);
