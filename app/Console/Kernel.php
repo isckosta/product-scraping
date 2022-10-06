@@ -21,7 +21,8 @@
         {
             // $schedule->command('inspire')->hourly();
             $schedule->command('quote:daily')
-                ->everyMinute();
+                ->daily()
+                ->emailOutputTo('isckosta@live.com');
         }
 
         /**

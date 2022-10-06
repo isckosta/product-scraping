@@ -37,7 +37,7 @@
                 o atributo 'href' do elemento '<a></a>' encontrado, montando assim, a URL do produto. */
                 $client = new Client();
 
-                // URL redirecionada para o país Brazil, idioma Português.
+                // URL redirecionada para o país Brasil, idioma Português.
                 $newProductUrl = "https://br.openfoodfacts.org" . $node->attr('href');
 
                 // Requisição para a URL do produto.
@@ -86,6 +86,7 @@
                 }
 
                 $rawData = Product::create(["name" => $realProductName, "barcode" => $realProductBarcode, "quantity" => $quantity, "brands" => $brands, "packaging" => $packaging, "categories" => $categories, "imported_t" => now(), "status" => "imported"]);
+                dd();
             });
 
             return "Produtos importados com sucesso!";
