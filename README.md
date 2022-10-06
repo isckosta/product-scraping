@@ -95,4 +95,8 @@ O Swagger é um software criado em 2011, que possui um conjunto de ferramentas c
 
 A OpenAPI Specification (OAS) é uma especificação criada que explica como modelar/documentar o design de uma determinada API baseada em padrões, permitindo aos humanos e computadores a descoberta e compreensão dos recursos do serviço sem acesso ao código fonte. A especificação cria uma interface RESTful para desenvolver e consumir facilmente uma API mapeando efetivamente todos os recursos e operações associados a ela. É, também, um padrão mundial APIs RESTful. Atualmente existem duas versões sendo utilizadas no Swagger, temos a 2.0 e a 3.0, que é a mais recente.
 
+## Documentação da API
+
+A documentação da API foi criada utilizando a ferramenta Swagger, se encontra na pasta docs.
+
 >  This is a challenge by [Coodesh](https://coodesh.com/)
