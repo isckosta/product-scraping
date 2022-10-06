@@ -99,4 +99,8 @@ A OpenAPI Specification (OAS) é uma especificação criada que explica como mod
 
 A documentação da API foi criada utilizando a ferramenta Swagger, se encontra na pasta docs.
 
+## Link da apresentação do projeto:
+
+https://www.loom.com/share/6b69eead682648b0a36e95579f912cb8
+
 >  This is a challenge by [Coodesh](https://coodesh.com/)
