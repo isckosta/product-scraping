@@ -121,7 +121,6 @@
                 }
 
                 $rawData = Product::create(["name" => $realProductName, "barcode" => $realProductBarcode, "quantity" => $quantity, "brands" => $brands, "packaging" => $packaging, "categories" => $categories, "imported_t" => now(), "status" => "imported"]);
-                dd();
             });
 
             return "Produtos importados com sucesso!";
